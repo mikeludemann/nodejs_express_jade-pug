@@ -2,31 +2,33 @@
  * Import Modules and other packages
  */
 
-import http from 'http';
-import https from 'https';
-import express from 'express';
-import session from 'express-session';
-import pug from 'pug';
-import fs from 'fs';
-import path from 'path';
-import logger from 'morgan';
-import bodyParser from 'body-parser';
-import cookieParser from 'cookie-parser';
-import validator from 'validator';
-import helmet from 'helmet';
-import purgecss from 'purgecss';
-import process from 'process';
+const http = require('http');
+// const https = require('https');
+const express = require('express');
+const session = require('express-session');
+const pug = require('pug');
+const fs = require('fs');
+const path = require('path');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const validator = require('validator');
+const helmet = require('helmet');
+const purgecss = require('purgecss');
+const process = require('process');
 
-import dotenv from 'dotenv';
-import config from 'config';
+const dotenv = require('dotenv');
+const config = require('config');
 
 /**
  * Setting and Getting - Variables
  */
 
-const privateKey = fs.readFileSync('./certificates/key.pem','utf-8');
+/*
+ const privateKey = fs.readFileSync('./certificates/key.pem','utf-8');
 const certificate = fs.readFileSync('./certificates/cert.pem','utf-8');
 const credentials = {key: privateKey, cert: certificate};
+*/
 
 // var hostConfig = config.get('data.hosting');
 var environmentFile = dotenv.config();
@@ -88,7 +90,7 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
     
     res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
+    res.locals.error = req.app.get('env') === require('development' ? err : {});
 
     res.status(err.status || 500);
     res.render('error');
@@ -100,8 +102,8 @@ app.use(function(err, req, res, next) {
  * Express within http(s) server
  */
   
-var http = http.createServer(app);
-var https = https.createServer(credentials, app);
+var server = http.createServer(app);
+// var serverSecure = https.createServer(credentials, app);
 
-http.listen(8080);
-https.listen(8443);
+server.listen(3000);
+// serverSecure.listen(8443);
