@@ -1,14 +1,17 @@
-import path from { path };
+import path from 'path';
 // const path = require('path');
 
 module.exports = {
+
+    mode: "production", // "production" | "development" | "none"
 
     entry: "./app.js", // Input file(s)
 
     output: {
 
+        path: path.resolve(__dirname, "dist"),
+
         filename: "./bundle.js", // Output file
-        path: path.resolve(__dirname, "public") // XXX should be replace
 
     },
 
