@@ -2,23 +2,23 @@
  * Import Modules and other packages
  */
 
-const http = require('http');
-// const https = require('https');
-const express = require('express');
-const session = require('express-session');
-const pug = require('pug');
-const fs = require('fs');
-const path = require('path');
-const logger = require('morgan');
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const validator = require('validator');
-const helmet = require('helmet');
-const purgecss = require('purgecss');
-const process = require('process');
+import http from 'http';
+// import https from 'https';
+import express from 'express';
+import session from 'express-session';
+import pug from 'pug';
+import fs from 'fs';
+import path from 'path';
+import logger from 'morgan';
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import validator from 'validator';
+import helmet from 'helmet';
+import purgecss from 'purgecss';
+import process from 'process';
 
-const dotenv = require('dotenv');
-const config = require('config');
+import dotenv from 'dotenv';
+import config from 'config';
 
 /**
  * Setting and Getting - Variables

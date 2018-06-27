@@ -2,14 +2,14 @@
   "name": "nodejs_express_jade-pug",
   "version": "1.0.0",
   "description": "Workplace for Node.js and Express and Pug (Jade)",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node ./app.js",
-    "watch": "nodemon --delay 2000ms ./app.js --ignore ./src/*/libs/ --ignore ./src/tests/ --watch ./src/*",
+    "start": "node ./index.js",
+    "watch": "nodemon --delay 2000ms ./index.js --ignore ./src/*/libs/ --ignore ./src/tests/ --watch ./src/*",
     "test": "echo \"Error: no test specified\" && exit 1",
     "cache": "npm cache clean",
     "reload": "node restart watch",
-    "bundler": "webpack --config prod.config.js"
+    "bundler": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -33,11 +33,13 @@
   "homepage": "https://github.com/mikeludemann/nodejs_express_jade-pug#readme",
   "dependencies": {
     "autoprefixer": "^8.5.2",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
     "body-parser": "^1.18.3",
     "cache-loader": "^1.2.2",
     "chalk": "^2.4.1",
@@ -112,6 +114,8 @@
     "underscore": "^1.9.1",
     "watchify": "^3.11.0",
     "webpack": "^4.10.2",
+    "webpack-cli": "^3.0.8",
+    "webpack-command": "^0.3.1",
     "webpack-monitor": "^1.0.14",
     "websocket": "^1.0.26"
   }

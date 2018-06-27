@@ -1,16 +1,17 @@
-const path = require('path');
+const paths = require('path');
+const webpack = require('webpack');
 
 module.exports = {
 
-    mode: "production", // "production" | "development" | "none"
+    mode: 'development', // "production" | "development" | "none"
 
-    entry: "./app.js", // Input file(s)
+    entry: './index.js', // Input file(s)
 
     output: {
 
-        path: path.resolve(__dirname, "dist"),
+        path: paths.resolve(__dirname, "./dist"),
 
-        filename: "./bundle.js", // Output file
+        filename: 'bundle.js', // Output file
 
     },
 
@@ -76,26 +77,26 @@ module.exports = {
             },
 
             {
-                test: /\.(js|jsx)?$/,
+                test: /\.js?$/, // (js|jsx)
 
                 use: [
+                    {
+                        loader: 'babel-loader', // 'cache-loader'
+                        options: {
 
-                    'cache-loader',
-                    'babel-loader'
+                            presets: ['react', 'es2015']
+        
+                        }
+                    }
 
                 ],
 
-                include: path.resolve('/src/script/'),
-
-                query: {
-
-                    presets: ['react', 'es2015']
-
-                },
+                include: paths.resolve('./src/script/'),
 
                 exclude: [
 
-                    path.resolve(__dirname, "/node_modules/")
+                    paths.resolve(__dirname, "/node_modules/"),
+                    paths.resolve(__dirname, "/bower_components/")
 
                 ]
 
@@ -113,7 +114,7 @@ module.exports = {
 
                 loader: 'ts-loader',
 
-                query: {
+                options: {
 
                     presets: ['react', 'es2015']
 
@@ -121,7 +122,7 @@ module.exports = {
 
                 exclude: [
 
-                    path.resolve(__dirname, "/node_modules/")
+                    paths.resolve(__dirname, "/node_modules/")
 
                 ]
 
@@ -218,7 +219,7 @@ module.exports = {
 
         },
 
-        contentBase: path.join(__dirname, "public"),
+        contentBase: paths.join(__dirname, "public"),
         compress: false,
         https: false,
         noInfo: true

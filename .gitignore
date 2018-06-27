@@ -15,8 +15,14 @@ node_modules
 package-lock.json
 
 # Precompiler #
-########
+###############
 .sass-cache 
 .less-cache
 *.sourcemap
 *.css.map
+/dist/bundle.js.map
+
+# Logs #
+########
+access.log
+*.log
